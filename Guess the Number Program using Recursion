@@ -1,0 +1,46 @@
+# Python 3 code for Guessing the Number beween 1 and 100 and also a Counter where it keeps a track of the attempts for the wrong Guess.
+# Recursion is employed using Functions.
+# The Program asks you to either lower or higher your Guess to arrive at the correct Number.
+import random
+
+def match(cg,ug,c):
+    
+    if (cg==ug):
+        print ("You guessed it right")
+        print (f"You guessed the Number in {c} time")
+    else:
+        if (ug < cg ):
+            print ("Guess more High")
+            print ("Counter is : ",c)
+            ug = int(input(f"Enter Number above {ug}: "))
+            c +=1
+            match(cg,ug,c)
+        else:
+            print ("Guess low")
+            print ("Counter is : ",c)
+            ug = int(input(f"Enter Number below {ug}: "))
+            c +=1
+            match(cg,ug,c)
+    
+
+Computer_guess = random.randint(1,100)
+#print (Computer_guess)---For Debugging
+global counter
+counter=1
+
+User_name=input("Input your name ? ")
+print ("\n")
+
+print (f"Kindly let us know {User_name} if you would play the Guess the game in Y/N : ")
+print ("\n")
+
+User_prompt=input("Enter the Prompt :")
+
+if (User_prompt.lower() == "y"):
+    User_guess = int(input("Enter Number : "))
+    match(Computer_guess,User_guess,counter)
+else:
+    print (f"{User_name} not interested in playing the Game")
+
+
+
