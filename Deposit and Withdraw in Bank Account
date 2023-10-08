@@ -1,0 +1,41 @@
+print("List of Persons with Available Balance ")
+
+Initial_Balance = {
+    "Ryan": 100,
+    "Seth": 50,
+    "Ravi": 0,
+    "Proj": 75,
+    "Shilpi": 200
+}
+
+def deposit(name,amount):
+    if str(amount).isdigit():
+        New_Balance=Initial_Balance[name] + int(amount)
+    else:
+        print ("Amount has to be a number : Invalid Input")
+    print (f"New Balance for {name} is {New_Balance} ")
+    
+    #print ("Updated Initial Balance Dictionary is ")
+    
+    Initial_Balance[name] = New_Balance
+        
+def withdraw(name,amount):
+    if str(amount).isdigit():
+        if (Initial_Balance[name] - int(amount) > 0):
+            New_Balance=Initial_Balance[name] - int(amount)
+        else:
+            print (f"Withdrwal Amount of {amount} greater than Initial balance of {Initial_Balance[name]} for {name}")
+            New_Balance=Initial_Balance[name]
+            print (f"New Balance for {name} is {New_Balance} ")
+            
+    else:
+        print ("Amount has to be a number : Invalid Input")
+    #print (f"New Balance for {name} is {New_Balance} ")
+    #print ("Updated Initial Balance Dictionary is ")
+    Initial_Balance[name] = New_Balance
+        
+deposit("Ryan",'100')
+deposit ("Ravi",'100')
+withdraw("Ryan",'50')
+withdraw("Ryan",'200')
+deposit("Shilpi",'125')
