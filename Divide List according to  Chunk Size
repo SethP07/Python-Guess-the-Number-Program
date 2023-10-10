@@ -1,0 +1,16 @@
+def chunkey_monkey(list1,chunk_size):
+    chunks=[]
+    for i in range(0,len(list1),chunk_size): # Passing the list and Chunk size 
+        print (i)
+        chunks.append(list1[i:i + chunk_size]) ## use of Python Slicing 
+    return chunks
+
+input_list=input("Enter a list of numbers seperated by spaces: ").split()
+
+input_list= [int(x) for x in input_list]
+
+chunk_size= int(input("Enter the chunk size :"))
+
+result=chunkey_monkey(input_list,chunk_size)
+
+print ("Chunks :" , result)
